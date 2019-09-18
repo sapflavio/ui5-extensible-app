@@ -1,10 +1,14 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel"
-], function (Controller, JSONModel) {
+//	"sap/ui/core/mvc/Controller",
+	"ovly/extensible/controller/BaseController",
+	"sap/ui/model/json/JSONModel",
+	"ovly/extensible/model/formatter"
+], function (BaseController, JSONModel, formatter) {
 	"use strict";
 
-	return Controller.extend("ovly.extensible.controller.S2", {
+	return BaseController.extend("ovly.extensible.controller.S2", {
+
+	formatter: formatter,
 
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
@@ -22,6 +26,14 @@ sap.ui.define([
 			this.getView().setModel(oViewModel, "view"); 
 
 		},
+		// Não é uma boa prática colocar funções de formatação no controller
+		// correto é criar um arquivo formatter para isso.
+	//	toUpperCase: function (sName) {
+	//		if(!sName){
+	//			return "???";
+	//		}
+	//		return sName.toUpperCase();
+	//	},
 
 		onBack: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
