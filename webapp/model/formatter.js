@@ -9,6 +9,13 @@ sap.ui.define(
 					return "???";
 				}
 				return sName.toUpperCase();
+			},
+			
+			calculateVolume: function(h,w,d){
+				if(h && w && d){
+					return h * w * d;
+				}
+				return "?";
 			}
 		};
 
